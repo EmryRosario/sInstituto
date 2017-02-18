@@ -4,9 +4,11 @@ const page = require('page')
 const swal = require('sweetalert')
 const url = require('../../config/url')
 
-let el = yo`<div class="login-box">
+let el = renderLogin('Dallas English School')
+function renderLogin (company) {
+  let el = yo`<div class="login-box">
   <div class="login-logo">
-    <a href="/login"><b>DALLAS</b></a>
+    <a href="/login"><b>${company}</b></a>
   </div>
   <div class="login-box-body">
     <p class="login-box-msg">Iniciar Sesion</p>
@@ -32,6 +34,8 @@ let el = yo`<div class="login-box">
     
   </div>
 </div>`
+  return el
+}
 
 function logIn (e) {
   e.preventDefault()
