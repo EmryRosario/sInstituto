@@ -2,3 +2,4 @@ secret-key.js
 url.js
 env.sh
 node_modules
+app
