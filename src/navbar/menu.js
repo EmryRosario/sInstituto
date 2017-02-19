@@ -2,10 +2,9 @@
 
 const request = require('superagent')
 const key = require('../../config/secret-key')
-const url = require('../../config/url')
 
 function menu (cxt, next) {
-  request.get(`${url}/api/menu-options`)
+  request.get('/api/menu-options')
   .set('Authorization', `Bearer ${key}`)
   .query({userId: window.localStorage.userId})
   .end((err, res) => {

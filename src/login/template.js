@@ -2,7 +2,6 @@ const yo = require('yo-yo')
 const request = require('superagent')
 const page = require('page')
 const swal = require('sweetalert')
-const url = require('../../config/url')
 
 let el = renderLogin('Dallas English School')
 function renderLogin (company) {
@@ -45,7 +44,7 @@ function logIn (e) {
   let userParams = {user: user, password: password}
 
   request
-  .post(`${url}/api/login`)
+  .post('/api/login')
   .accept('json')
   .send(userParams)
   .set('Accept', 'application/json')

@@ -185,7 +185,7 @@ app.get('/api/company/:id', authorization, (req, res) => {
   })
 })
 
-app.listen(port, () => console.log('Server listen on port 3000'))
+app.listen(port, () => console.log(`Server listen on port ${port}`))
 
  // Select e.Enc_CodCli,m.Est_Nombre,e.Enc_Numero,d.Det_Linea Sec,e.Enc_Fecha,e.Enc_Hora,d.Det_Descri,d.Det_Total+d.Det_Itbis,e.Enc_User " & _
  //                    " From FACENC e," & _

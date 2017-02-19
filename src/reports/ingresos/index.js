@@ -8,7 +8,6 @@ const empty = require('empty-element')
 const yo = require('yo-yo')
 const $ = require('jquery')
 const request = require('superagent')
-const urlRequest = require('../../../config/url')
 const key = require('../../../config/secret-key')
 const {requestParams} = require('./utils')
 const {deserializeToken, getCompanyById, time} = require('../../utils')
@@ -125,7 +124,7 @@ function getReport (e) {
   deserializeToken(window.localStorage.matriculaToken)
   .then(userToken => {
     request
-  .get(`${urlRequest}/api/reporte/ingreso`)
+  .get('/api/reporte/ingreso')
   .accept('json')
   .set({Authorization: `Bearer ${key}`})
   .query({

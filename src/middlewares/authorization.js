@@ -2,11 +2,10 @@
 const request = require('superagent')
 const page = require('page')
 const swal = require('sweetalert')
-const url = require('../../config/url')
 
 module.exports = function (ctx, next) {
   if (window.localStorage.matriculaToken) {
-    request.get(`${url}/api/authenticate`)
+    request.get(`/api/authenticate`)
     .set('Authorization', window.localStorage.matriculaToken)
     .end((err, resp) => {
       if (err) {
