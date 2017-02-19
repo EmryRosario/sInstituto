@@ -11,7 +11,7 @@ const request = require('superagent')
 const urlRequest = require('../../../config/url')
 const key = require('../../../config/secret-key')
 const {requestParams} = require('./utils')
-const {deserializeToken, getCompanyById} = require('../../utils')
+const {deserializeToken, getCompanyById, time} = require('../../utils')
 
 page('/reporte/ingreso', authenticate, navbar.getMenu, navbar.getSubmenu, navbar.navbar, requestParams, loader, function parametroIngreso (ctx, next) {
   document.title = 'Parametros reporte de ingresos'
@@ -154,18 +154,29 @@ function getReport (e) {
 
 function renderReport (report, company) {
   let container = document.getElementById('main-container')
+  let currentDate = new Date()
 
   let el = yo`
   <div id="report-container">
     <div id="report-buttons" class="container-fluid text-right">
-      <a href="/reporte/ingreso" class="btn btn-danger" id="btn-cancel">Cancelar</a>
-      <button class="btn btn-primary" onclick=${print} id="btn-success">Imprimir</button>
+      <a href="/reporte/ingreso" class="btn btn-danger" id="btn-cancel"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</a>
+      <button class="btn btn-primary" onclick=${print} id="btn-success"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
     </div>
    
     <div id="report-content">
         <table class="table table-striped table-hover">
          <thead>
-            <th colspan="9"><div class=" text-center table-header">${company.name}</div></th>
+            <th colspan="9">
+              <div class="table-header">
+                <div class="row date-report">
+                  <div class="col-xs-12">Fecha: ${currentDate.toLocaleDateString()}</div>
+                  <div class="col-xs-12">Hora: ${time(currentDate)}</div>
+                </div>
+                <div class="col-xs-4 col-xs-push-4">
+                  <span class="text-center">${company.name}</span>
+                </div>
+              </div>
+            </th>
             <tr>
               <th>Recibo</th>
               <th>Fecha</th>

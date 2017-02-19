@@ -32,7 +32,21 @@ function getCompanyById (id) {
   })
 }
 
+function time (date) {
+  let time = date.toLocaleTimeString()
+
+  time = time.split(':')
+  time = time.map(x => parseInt(x))
+
+  let meridian = time[0] > 11 ? 'PM' : 'AM'
+
+  time[0] = time[0] > 12 ? time[0] - 12 : time[0]
+
+  return `${time[0]}:${time[1]}:${time[2]} ${meridian}`
+}
+
 module.exports = {
   deserializeToken,
-  getCompanyById
+  getCompanyById,
+  time
 }
