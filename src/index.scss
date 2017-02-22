@@ -26,3 +26,16 @@
 	height:3em;
 }
 
+.logo-container {
+  height: 186px;
+  width:490px;
+  background-image: url('./assets/logo.jpg');
+  background-repeat: no-repeat; 
+}
+
+.main-container-center {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+

@@ -31,7 +31,7 @@ function template (data) {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><a><i class="fa fa-times" aria-hidden="true"></i></a></span></button>
+        <a  class="close" onclick=${exitModal} aria-label="Close"><span aria-hidden="true"><a><i class="fa fa-times" aria-hidden="true"></i></a></span></a>
         <h4 class="modal-title">Ingresos</h4>
       </div>
       <div class="modal-body">
@@ -89,9 +89,9 @@ function template (data) {
       </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-default cancel" data-dismiss="modal">
+        <a class="btn btn-default cancel" href="/" onclick=${exitModal}>
           <i class="fa fa-ban" aria-hidden="true"></i>
-        </button>
+        </a>
        
         <button type="button" onclick=${getReport} class="btn btn-primary success">
          <i class="fa fa-check" aria-hidden="true"></i>
@@ -103,6 +103,12 @@ function template (data) {
 </div>`
 
   return el
+}
+
+function exitModal (e) {
+  e.preventDefault()
+  $('#modalParametroIngreso').modal('hide')
+  page.redirect('/')
 }
 
 function listCourses (element) {
