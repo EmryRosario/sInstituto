@@ -3,7 +3,8 @@ let routes = [
   '/',
   '/inscripciones',
   '/login',
-  '/reporte/ingreso'
+  '/reporte/ingreso',
+  '/reporte/cuadre-caja'
 ]
 
 module.exports = routes

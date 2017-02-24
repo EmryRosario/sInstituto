@@ -10,6 +10,6 @@ require('./login')
 require('./homepage')
 require('./inscripciones')
 require('./reports/ingresos')
+require('./reports/cuadre-caja')
 require('./exit')
-require('./reports/ingresos/utils')
-page();
+page()
